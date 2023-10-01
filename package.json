@@ -64,5 +64,5 @@
         "test": "ts-mocha -p ./node_modules/@chalkysticks/mrm-preset/tsconfig.test.json test/**/*.spec.ts"
     },
     "types": "build/esm/index.d.ts",
-    "version": "1.0.8"
+    "version": "1.1.0"
 }

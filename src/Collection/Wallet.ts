@@ -1,18 +1,12 @@
-import { CollectionBase } from '@chalkysticks/sdk-core';
-import ModelWallet from '../Model/Wallet';
+import { Collection } from '@chalkysticks/sdk-core';
+import * as Model from '../Model';
 
 /**
- * ┌────────────────────────────────────────────────────────────────────────────┐
- * │                                                                            │
- * │ CollectionWallet                                                           │
- * │                                                                            │
- * │ @namespace Collection                                                      │
- * │ @package   SDK-Wallet                                                      │
- * │ @project   ChalkySticks                                                    │
- * │                                                                            │
- * └────────────────────────────────────────────────────────────────────────────┘
+ * @class Wallet
+ * @package Collection
+ * @project ChalkySticks SDK Wallets
  */
-export default class CollectionWallet extends CollectionBase {
+export class Wallet extends Collection.Base<Model.Wallet> {
     /**
      * Endpoint key
      * e.g. https://api.chalkysticks.com/v1/wallet
@@ -24,7 +18,7 @@ export default class CollectionWallet extends CollectionBase {
     /**
      * Model object instantiated by this collection
      *
-     * @type ModelWallet
+     * @type Model.Wallet
      */
-    public model: any = ModelWallet;
+    public model: Model.Wallet = new Model.Wallet();
 }

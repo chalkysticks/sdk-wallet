@@ -1,20 +1,30 @@
 import { expect } from 'chai';
-import CollectionWallet from '../src/Collection/Wallet';
-import ModelWallet from '../src/Model/Wallet';
+import { Collection, Model } from '../src';
 
+// Setup
+// ----------------------------------------------------------------------------
 
-/**
-  ┌────────────────────────────────────────────────────────────────────────────┐
-  │                                                                            │
-  │ Local tests                                                                │
-  │                                                                            │
-  └────────────────────────────────────────────────────────────────────────────┘
-*/
+const walletModel: Model.Wallet = new Model.Wallet({
+	user_id: 0,
+	challenger_id: null,
+	transaction: 60, // TODO Replace with enum
+	source: 'checkin', // TODO Replace with enum
+	source_id: null,
+	user: {
+		id: 1,
+		name: 'Matt Kenefick',
+		email: 'matt@chalkysticks.com',
+	}
+});
+
 
 describe('Wallet - Local', () => {
-
-    it('should have a name', () => {
-        // Not implemented
+    it('should have a transaction', () => {
+        expect(walletModel.getTransaction()).to.be.a('number');
     });
 
+    it('should have a user', () => {
+        expect(walletModel.user).to.be.an('object');
+		expect(walletModel.user.getName()).to.be.a('string');
+    });
 });
