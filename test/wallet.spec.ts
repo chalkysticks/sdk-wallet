@@ -1,4 +1,5 @@
-import { expect } from 'chai';
+import test from 'node:test';
+import assert from 'node:assert/strict';
 import { Collection, Model } from '../src';
 
 // Setup
@@ -14,17 +15,13 @@ const walletModel: Model.Wallet = new Model.Wallet({
 		id: 1,
 		name: 'Matt Kenefick',
 		email: 'matt@chalkysticks.com',
-	}
+	},
 });
 
+test('Wallet should have a transaction', () => {
+	assert.equal(walletModel.getTransaction(), 60);
+});
 
-describe('Wallet - Local', () => {
-    it('should have a transaction', () => {
-        expect(walletModel.getTransaction()).to.be.a('number');
-    });
-
-    it('should have a user', () => {
-        expect(walletModel.user).to.be.an('object');
-		expect(walletModel.user.getName()).to.be.a('string');
-    });
+test('Wallet should have a user', () => {
+	assert.equal(walletModel.user.getName(), 'Matt Kenefick');
 });
